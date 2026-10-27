@@ -1,0 +1,29 @@
+# Gradle
+.gradle/
+build/
+app/build/
+
+# Local configuration
+local.properties
+
+# Log Files
+*.log
+
+# Android Studio / IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Native Build
+.externalNativeBuild
+.cxx/
+
+# Keystores & Credentials
+*.jks
+*.keystore
+
+# Large data / temporary logs
+*.pbf
+*.db
+ignored_words.txt

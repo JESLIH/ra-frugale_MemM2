@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Caméra pour le rendu RA (Camera2 direct, pas ARCore) -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+
+    <!-- Position pour l'agent Géomaticien -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- Micro pour le pipeline vocal offline -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <!-- Capteurs d'orientation (boussole/IMU) : pas de permission runtime requise,
+         mais on déclare la feature pour exclure les appareils sans magnétomètre -->
+    <uses-feature android:name="android.hardware.sensor.compass" android:required="true" />
+
+    <!-- Aucune permission Internet volontairement déclarée : le système est
+         offline-first (§ contexte du sujet de stage). À ajouter uniquement
+         si une mise à jour du .pbf en ligne est explicitement souhaitée plus tard. -->
+
+    <application
+        android:name=".RaFrugaleApplication"
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/Theme.RaFrugale"
+        android:hardwareAccelerated="true">
+
+        <activity
+            android:name=".presentation.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
